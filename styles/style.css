@@ -207,6 +207,7 @@ input, select, textarea {
     border: 1px solid #C7C3C3;
     background: #F6F6F6;
     box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.20);
+    margin-bottom: 1vh;
 }
 
 .tool-shop-cont {
@@ -214,6 +215,20 @@ input, select, textarea {
     align-items: center;
     justify-content: space-around;
     flex-direction: row;  
+}
+
+.disabled {
+    top: 10px;
+    box-shadow: none;
+    background: #E0E0E0;
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+.store-tool:hover{
+    background: #e6e6e6;
+    box-shadow: 0 5px #aaa;
+    color: #888;
 }
 
 .tool-shop-image{
