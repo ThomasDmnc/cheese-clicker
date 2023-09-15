@@ -1,18 +1,245 @@
 body{
-    padding: 0;
     text-align: center;
+    font-family: 'Inter', sans-serif;
+    width: 100vw;
+    height: 80vh;
+    margin: 0;
 }
 
 #game-intro{
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
+    background: #FFF;
 }
 
-#game-container{
+#game-intro h1 {
+    color: #000;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#game-intro p {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 25vw;
+}
+.form input {
+    border: 1px solid #000;
+    background: #EFEFEF;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+input, select, textarea {
+    font-size: 100%;
+    font-family: 'Inter', sans-serif;
+}
+    
+.starting-button {
+    border-radius: 15px;
+    background: #CEE1C9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 1em;
+    padding: 1em;
+    width: 400px;
+    height: 100px;
+}
+
+#game-container {
     background-color: green;
     display: none;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background: #FCFCFC;
+    align-items: stretch;
+    justify-content: center;
 }
 
-#game-end{
+.col1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/pasture.png);
+    background-size: cover;
+    width: 30%;
+}
+
+.cheese{
+    margin-top: 10vh;
+}
+
+.cheese img{
+    width: 400px;
+    height: 400px;
+}
+
+.counter-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    heigth: 100px;
+    background: #F6F6F6;
+    border-radius: 15px;
+}
+
+.counter {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.col2 {
+    background: #FCFCFC;
+    width: 40%;
+}
+.col2-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+.title {
+    color: #000;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.rules{
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: start;
+}
+
+.tools-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+.tool {
+    background: #D9D9D9;
+    border-radius: 15px;
+    height: 100px;
+    margin-bottom: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.tool-title{
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tool-images img {
+    width: 50px;
+    height: 50px;
+}
+
+.col3 {
+    background: #FCFCFC;
+    width: 30%;
+}
+
+
+.store-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    padding: 2vh 2vw 2vh 2vw;
+}
+
+.store-tool {
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px 0 25px;
+    flex-direction: row;
+    border-radius: 5px;
+    border: 1px solid #C7C3C3;
+    background: #F6F6F6;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.20);
+}
+
+.tool-shop-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;  
+}
+
+.tool-shop-image{
+    width: 100px;
+    height: 100px;
+}
+
+.tool-shop-name {
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.tool-shop-price {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#game-end {
     background-color: red;
     display: none;
 }

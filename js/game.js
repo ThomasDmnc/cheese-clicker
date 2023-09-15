@@ -9,6 +9,6 @@ class Game {
     start() {
         this.startScreen.style.display = 'none'
         this.gameEndScreen.style.display = 'none'
-        this.gameScreen.style.display = 'block'
+        this.gameScreen.style.display = 'flex'
       }
 }
