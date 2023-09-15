@@ -1,0 +1,18 @@
+body{
+    padding: 0;
+    text-align: center;
+}
+
+#game-intro{
+    background-color: blue;
+}
+
+#game-container{
+    background-color: green;
+    display: none;
+}
+
+#game-end{
+    background-color: red;
+    display: none;
+}
