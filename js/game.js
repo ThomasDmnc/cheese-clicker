@@ -25,12 +25,15 @@ class Game {
       this.counter += (this.rate / 100);
       this.replaceRate();
 
-      this.updateCursorPrice();
-      this.updateCowPrice();
+      this.updateAllPrices()
 
       // if (this.currentTime >= 20000){
       //   this.gameOver = true;
       // }
+      
+      if (this.counter >= 1000){
+        this.gameWon();
+      }
   
       if (this.gameOver){
         this.startScreen.style.display = "none";
@@ -38,6 +41,20 @@ class Game {
         this.gameScreen.style.display = "none";
       }
     }, 10);
+  }
+
+  updateAllPrices(){
+    this.updateCursorPrice();
+    this.updateCheeseKnifePrice();
+    this.updateCowPrice();
+    this.updateFarmPrice();
+    this.updateFarmerPrice();
+    this.updateAliensPrice();
+    this.updateFactoryPrice();
+  }
+
+  gameWon(){
+    alert('you won');
   }
 
   start() {
@@ -83,12 +100,15 @@ class Game {
 
   updateCursorPrice(){
     let rateText = document.querySelector('[data-name="cursor"]').children[1];
+    let cardText = document.getElementById('cursor-card');
     let price = 10;
 
     if (this.cursorCounter != 0) {
       price *= Math.pow(1.2, this.cursorCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
+    cardText.innerText = `Cursors: ${this.cursorCounter}`
+
   }
 
 
@@ -109,12 +129,14 @@ class Game {
   
   updateCheeseKnifePrice(){
     let rateText = document.querySelector('[data-name="knife"]').children[1];
+    let cardText = document.getElementById('knife-card');
     let price = 100;
 
     if (this.knifeCounter != 0) {
-      price *= Math.pow(1.2, this.cursorCounter);
+      price *= Math.pow(1.2, this.knifeCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
+    cardText.innerText = `Cheese Knifes: ${this.knifeCounter}`
   }
 
   buyCow(){
@@ -134,12 +156,14 @@ class Game {
 
   updateCowPrice(){
     let rateText = document.querySelector('[data-name="cow"]').children[1];
+    let cardText = document.getElementById('cow-card');
     let price = 500;
 
     if (this.cowCounter != 0) {
       price *= Math.pow(1.2, this.cowCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
+    cardText.innerText = `Cows: ${this.cowCounter}`
   }
 
 
@@ -160,12 +184,14 @@ class Game {
 
   updateFarmerPrice(){ 
     let rateText = document.querySelector('[data-name="farmer"]').children[1];
+    let cardText = document.getElementById('farmer-card');
     let price = 1000;
 
     if (this.farmerCounter != 0) {
       price *= Math.pow(1.2, this.farmerCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
+    cardText.innerText = `Farmers: ${this.farmerCounter}`
   }
 
   buyFarm(){
@@ -185,29 +211,87 @@ class Game {
 
   updateFarmPrice(){
     let rateText = document.querySelector('[data-name="farm"]').children[1];
+    let cardText = document.getElementById('farm-card');
     let price = 50000;
 
     if (this.farmCounter != 0) {
       price *= Math.pow(1.2, this.farmCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
-
+    cardText.innerText = `Farms: ${this.farmCounter}`
   }
 
   buyFactory(){
+    let price = 100000;
+    let rate = 250;
 
+    if (this.factoryCounter != 0) {
+      price *= Math.pow(1.2, this.factoryCounter);
+    }
+
+    if (this.counter >= price){
+      this.counter -= price;
+      this.rate += rate;
+      this.factoryCounter += 1;
+    }
   }
 
   updateFactoryPrice(){
+    let factoryCard = document.getElementById('factory-surprise');
+    let rateText = document.querySelector('[data-name="factory"]').children[1];
+    let cardText = document.getElementById('factory-card');
+    let price = 100000;
 
+    if (this.factoryCounter < 1){
+      factoryCard.style.display = "none";
+    }
+
+    let cardVisibility = document.querySelector('[data-name="factory"]');
+    
+    if (this.counter >= 10000){
+      cardVisibility.classList.remove('disabled');
+    }
+
+    if (this.factoryCounter != 0) {
+      price *= Math.pow(1.2, this.factoryCounter);
+    }
+    rateText.innerText = `${Math.floor(price)}`;
+    cardText.innerText = `Factories: ${this.factoryCounter}`
   }
 
   buyAliens(){
+    let price = 100000000;
+    let rate = 500;
 
+    if (this.aliensCounter != 0) {
+      price *= Math.pow(1.2, this.aliensCounter);
+    }
+
+    if (this.counter >= price){
+      this.counter -= price;
+      this.rate += rate;
+      this.aliensCounter += 1;
+    }
   }
 
   updateAliensPrice(){
+    let alienCard = document.getElementById('aliens-surprise');
+    let rateText = document.querySelector('[data-name="aliens"]').children[1];
+    let price = 100000000;
+    let cardVisibility = document.querySelector('[data-name="aliens"]');
 
+    if (this.aliensCounter < 1){
+      alienCard.style.display = "none";
+    }
+
+    if (this.counter >= 1000000){
+      cardVisibility.classList.remove('disabled');
+    }
+
+    if (this.aliensCounter != 0) {
+      price *= Math.pow(1.2, this.aliensCounter);
+    }
+    rateText.innerText = `${Math.floor(price)}`;
   }
 
 }

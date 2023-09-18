@@ -100,6 +100,10 @@ input, select, textarea {
     height: 400px;
 }
 
+.cheese img:active{
+    transform: scale(0.8);
+}
+
 .counter-cont {
     display: flex;
     flex-direction: column;
@@ -221,7 +225,7 @@ input, select, textarea {
     top: 10px;
     box-shadow: none;
     background: #E0E0E0;
-    filter: blur(1px);
+    filter: blur(8px);
     pointer-events: none;
 }
 
@@ -232,8 +236,8 @@ input, select, textarea {
 }
 
 .tool-shop-image{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
 
 .tool-shop-name {

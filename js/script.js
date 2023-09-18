@@ -5,6 +5,13 @@ window.addEventListener('load', () => {
     // all tools query selectors
     const cursorsButton = document.querySelector('[data-name="cursor"]');
     const cowsButton = document.querySelector('[data-name="cow"]');
+    const knifeButton =  document.querySelector('[data-name="knife"]');
+    const farmerButton =  document.querySelector('[data-name="farmer"]');
+    const farmButton =  document.querySelector('[data-name="farm"]');
+    const factoryButton =  document.querySelector('[data-name="factory"]');
+    const aliensButton =  document.querySelector('[data-name="aliens"]');
+
+    
 
     let game;
 
@@ -15,7 +22,13 @@ window.addEventListener('load', () => {
     };
 
     startButton.addEventListener('click', function () {
+        const playerName = document.getElementById('player-name').value;
+        let helloTitle = document.querySelector('.title')
+
+        helloTitle.innerText = `Hello ${playerName} 👋`
+
         startGame()
+        
     });
 
     // restartButton.addEventListener('click', function () {
@@ -23,18 +36,35 @@ window.addEventListener('load', () => {
     // });
 
     cheeseButton.addEventListener("click", function () {
-        console.log("test");
         game.clickAddCounter();
     })
 
     cursorsButton.addEventListener('click', function() {
-        console.log('cursor');
         game.buyCursor();
     })
 
     cowsButton.addEventListener('click', function() {
-        console.log('cow');
         game.buyCow();
+    })
+
+    knifeButton.addEventListener('click', function() {
+        game.buyCheeseKnife();
+    })
+
+    farmerButton.addEventListener('click', function() {
+        game.buyFarmer();
+    })
+
+    farmButton.addEventListener('click', function() {
+        game.buyFarm();
+    })
+
+    factoryButton.addEventListener('click', function() {
+        game.buyFactory();
+    })
+
+    aliensButton.addEventListener('click', function() {
+        game.buyAliens();
     })
 
 });

@@ -19,7 +19,7 @@
                 <h1>Welcome to Cheese Clicker 🧀</h1>
                 <p>Enter your name</p>
                 <div class="form">
-                    <input type="player-name">
+                    <input id="player-name" type="player-name">
                     <button class="starting-button" id="start-button">Let's gooooo</button>
                 </div>
             </div>
@@ -43,29 +43,50 @@
                 </div>
                 <div class="tools-container">
                     <div class="tool" >
-                        <p class="tool-title">Cow</p>
+                        <p class="tool-title" id="cursor-card">Cursor</p>
+                        <div class="tool-images">
+                            <img src="./images/cursor.png" alt="cursor">
+                        </div>
+                    </div>
+                    <div class="tool" >
+                        <p class="tool-title" id="knife-card">Cheese Knife</p>
+                        <div class="tool-images">
+                            <img src="./images/Cheese_knife.png" alt="cow">
+                        </div>
+                    </div>
+                    <div class="tool">
+                        <p class="tool-title" id="cow-card">Cow</p>
                         <div class="tool-images">
                             <img src="./images/cow.png" alt="cow">
                         </div>
                     </div>
                     <div class="tool" >
-                        <p class="tool-title">Cow</p>
+                        <p class="tool-title" id="farmer-card">Farmer</p>
                         <div class="tool-images">
-                            <img src="./images/cow.png" alt="cow">
+                            <img src="./images/farmer.png" alt="cow">
                         </div>
                     </div>
                     <div class="tool" >
-                        <p class="tool-title">Cow</p>
+                        <p class="tool-title" id="farm-card">Farm</p>
                         <div class="tool-images">
-                            <img src="./images/cow.png" alt="cow">
+                            <img src="./images/farm.png" alt="cow">
                         </div>
                     </div>
-                    <div class="tool" >
-                        <p class="tool-title">Cow</p>
+                    <!-- Special treatment for those 2 cards 😏 -->
+                    <div class="tool" id="factory-surprise">
+                        <p class="tool-title" id="factory-card">Factory</p>
                         <div class="tool-images">
-                            <img src="./images/cow.png" alt="cow">
+                            <img src="./images/farm.png" alt="cow">
                         </div>
                     </div>
+                    <div class="tool" id="aliens-surprise">
+                        <p class="tool-title" id="aliens-card">Aliens</p>
+                        <div class="tool-images">
+                            <img src="./images/farm.png" alt="cow">
+                        </div>
+                    </div>
+
+
                 </div>   
             </div>
             <div class="col3">
@@ -75,14 +96,14 @@
                 <div class="store-container">
                     <div class="store-tool" data-name="cursor" >
                         <div class="tool-shop-cont"> 
-                        <img class="tool-shop-image" src="./images/cow.png" alt="cow">
+                        <img class="tool-shop-image" src="./images/cursor.png" alt="cow">
                         <p class="tool-shop-name">Cursor</p>
                         </div>
                         <p class="tool-shop-price">10</p>
                     </div>
                     <div class="store-tool" data-name="knife">
                         <div class="tool-shop-cont"> 
-                        <img class="tool-shop-image" src="./images/cow.png" alt="cow">
+                        <img class="tool-shop-image" src="./images/Cheese_knife.png" alt="cow">
                         <p class="tool-shop-name">Knife</p>
                         </div>
                         <p class="tool-shop-price">100</p>
@@ -96,24 +117,31 @@
                     </div>
                     <div class="store-tool" data-name="farmer">
                         <div class="tool-shop-cont"> 
-                        <img class="tool-shop-image" src="./images/cow.png" alt="cow">
+                        <img class="tool-shop-image" src="./images/farmer.png" alt="cow">
                         <p class="tool-shop-name">Farmer</p>
                         </div>
                         <p class="tool-shop-price">1000</p>
                     </div>
                     <div class="store-tool" data-name="farm">
                         <div class="tool-shop-cont"> 
-                        <img class="tool-shop-image" src="./images/cow.png" alt="cow">
+                        <img class="tool-shop-image" src="./images/farm.png" alt="cow">
                         <p class="tool-shop-name">Farm</p>
                         </div>
                         <p class="tool-shop-price">50000</p>
                     </div>
-                    <div class="store-tool" data-name="factory">
+                    <div class="store-tool disabled" data-name="factory">
                         <div class="tool-shop-cont"> 
                         <img class="tool-shop-image" src="./images/cow.png" alt="cow">
                         <p class="tool-shop-name">Cheese Factory</p>
                         </div>
                         <p class="tool-shop-price">100000</p>
+                    </div>
+                    <div class="store-tool disabled" data-name="aliens">
+                        <div class="tool-shop-cont"> 
+                        <img class="tool-shop-image" src="./images/cow.png" alt="cow">
+                        <p class="tool-shop-name">Aliens Cheese Makers</p>
+                        </div>
+                        <p class="tool-shop-price">100000000</p>
                     </div>
 
                 </div>
@@ -124,7 +152,6 @@
             <p>You lost </p>
         </div>
     </main>
-    <script text="text/javascript" src="./js/objects.js"></script>
     <script text="text/javascript" src="./js/game.js"></script>
     <script text="text/javascript" src="./js/script.js"></script>
 </body>
