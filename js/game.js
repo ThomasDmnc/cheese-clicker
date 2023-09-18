@@ -8,14 +8,24 @@ class Game {
     this.ToolsArr = [];
     this.currentTime = 0;
     this.intervalId = null;
+    this.gameOver = false;
   }
 
   gameLoop() {
     this.intervalId = setInterval(() => {
       this.currentTime += 1;
-
       this.replaceCounter();
-    }, 1000);
+
+      if (this.currentTime >= 20000){
+        this.gameOver = true;
+      }
+  
+      if (this.gameOver){
+        this.startScreen.style.display = "none";
+        this.gameEndScreen.style.display = "flex";
+        this.gameScreen.style.display = "none";
+      }
+    }, 10);
   }
 
   start() {
@@ -27,13 +37,29 @@ class Game {
 
   clickAddCounter() {
     this.counter += 1;
-    console.log(this.counter);
+    this.currentTime = 0;
     this.replaceCounter();
   }
 
   replaceCounter() {
     let counterText = document.querySelector(".counter");
     counterText.innerText = `${this.counter} Camemberts`;
-    console.log(`${this.counter}`);
+    console.log(`this counter is ${this.counter}`);
+  }
+
+  replaceRate() {
+    let rateText = document.querySelector('.rate');
+    rateText.innerText = `per sec ${this.rate}`
+    console.log(`this rate is ${this.rate}`)
+  }
+
+
+
+  buyCursor(){
+
+  }
+
+  buyCow(){
+
   }
 }
