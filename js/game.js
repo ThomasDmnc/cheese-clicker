@@ -63,16 +63,16 @@ class Game {
 
   loadLocalStorage() {
     console.log("aw lard makes this warks");
-    this.counter = parseFloat(localStorage.getItem('counter'));
-    this.rate = localStorage.getItem('rate');
-    this.settings = localStorage.getItem('settings');
-    this.cursorCounter = localStorage.getItem('cursorCounter');
-    this.cowCounter = localStorage.getItem('cowCounter');
-    this.knifeCounter = localStorage.getItem('knifeCounter');
-    this.farmerCounter = localStorage.getItem('farmerCounter');
-    this.farmCounter = localStorage.getItem('farmCounter');
-    this.factoryCounter = localStorage.getItem('factoryCounter');
-    this.aliensCounter = localStorage.getItem('aliensCounter');
+    this.counter = parseInt(localStorage.getItem('counter'));
+    this.rate = parseInt(localStorage.getItem('rate'));
+    this.settings = localStorage.getItem('settings') === "true" ? true : false;
+    this.cursorCounter = parseInt(localStorage.getItem('cursorCounter'));
+    this.cowCounter = parseInt(localStorage.getItem('cowCounter'));
+    this.knifeCounter = parseInt(localStorage.getItem('knifeCounter'));
+    this.farmerCounter = parseInt(localStorage.getItem('farmerCounter'));
+    this.farmCounter = parseInt(localStorage.getItem('farmCounter'));
+    this.factoryCounter = parseInt(localStorage.getItem('factoryCounter'));
+    this.aliensCounter = parseInt(localStorage.getItem('aliensCounter'));
   }
 
   updateAllPrices(){

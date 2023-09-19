@@ -37,7 +37,8 @@ window.addEventListener('load', () => {
         helloTitle.innerText = `Hello ${playerName} 👋`
         startGame();
 
-        if (window.localStorage.length === 0){
+        if (window.localStorage.length <= 8){
+            console.log('does it work?')
             game.startLocalStorage();
         } else {
             game.loadLocalStorage();
