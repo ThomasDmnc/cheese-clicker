@@ -36,6 +36,14 @@ window.addEventListener('load', () => {
         let helloTitle = document.querySelector('.title')
         helloTitle.innerText = `Hello ${playerName} 👋`
         startGame();
+
+        if (window.localStorage.length === 0){
+            game.startLocalStorage();
+        } else {
+            game.loadLocalStorage();
+            game.startLocalStorage();
+        }
+        
     });
 
     restartButton.addEventListener('click', function () {
@@ -91,6 +99,7 @@ window.addEventListener('load', () => {
             game.settings = false;
         }
         settingsWindow.style.display = 'none';
+        console.log(game.settings);
     })
 
     document.addEventListener('keydown', event => {

@@ -5,7 +5,6 @@ class Game {
     this.gameScreen = document.getElementById("game-container");
     this.counter = 0;
     this.rate = 0;
-    this.ToolsArr = [];
     this.currentTime = 0;
     this.intervalId = null;
     this.settings = true;
@@ -47,6 +46,35 @@ class Game {
         this.gameWon();
       }
   }
+
+  startLocalStorage(){
+    setInterval(() => {
+      localStorage.setItem('counter', this.counter);
+      localStorage.setItem('rate', this.rate);
+      localStorage.setItem('settings', this.settings);
+      localStorage.setItem('cursorCounter', this.cursorCounter);
+      localStorage.setItem('cowCounter', this.cowCounter);
+      localStorage.setItem('knifeCounter', this.knifeCounter);
+      localStorage.setItem('farmerCounter', this.farmerCounter);
+      localStorage.setItem('farmCounter', this.farmCounter);
+      localStorage.setItem('factoryCounter', this.factoryCounter);
+    }, 60000)
+  }
+
+  loadLocalStorage() {
+    console.log("aw lard makes this warks");
+    this.counter = parseFloat(localStorage.getItem('counter'));
+    this.rate = localStorage.getItem('rate');
+    this.settings = localStorage.getItem('settings');
+    this.cursorCounter = localStorage.getItem('cursorCounter');
+    this.cowCounter = localStorage.getItem('cowCounter');
+    this.knifeCounter = localStorage.getItem('knifeCounter');
+    this.farmerCounter = localStorage.getItem('farmerCounter');
+    this.farmCounter = localStorage.getItem('farmCounter');
+    this.factoryCounter = localStorage.getItem('factoryCounter');
+    this.aliensCounter = localStorage.getItem('aliensCounter');
+  }
+
   updateAllPrices(){
     this.updateCursorPrice();
     this.updateCheeseKnifePrice();
