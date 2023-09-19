@@ -4,6 +4,14 @@ window.addEventListener('load', () => {
     const cheeseButton = document.querySelector('.cheese');
     const crossWinButton = document.querySelector('.winning .cross-header');
     const winningWindow = document.querySelector('.winning');
+
+
+    const settingsButton = document.querySelector('.question');
+    const settingsWindow = document.querySelector('.settings');
+    const crossSettingsButton = document.querySelector('.settings-cross-image');
+    let settingsCheckbox = document.querySelector('.settings-checkbox');
+
+
     // all tools query selectors
     const cursorsButton = document.querySelector('[data-name="cursor"]');
     const cowsButton = document.querySelector('[data-name="cow"]');
@@ -13,6 +21,7 @@ window.addEventListener('load', () => {
     const factoryButton =  document.querySelector('[data-name="factory"]');
     const aliensButton =  document.querySelector('[data-name="aliens"]');
 
+    const audio = new Audio('./music/click-sound.mp3') 
 
     let game;
 
@@ -35,6 +44,7 @@ window.addEventListener('load', () => {
     });
 
     cheeseButton.addEventListener("click", function () {
+        audio.play();
         game.clickAddCounter();
     })
 
@@ -71,15 +81,30 @@ window.addEventListener('load', () => {
         winningWindow.style.display = "none";
     })
 
+    settingsButton.addEventListener('click', function(){
+        console.log('check'); 
+        settingsWindow.style.display = 'block';
+    })
+
+    crossSettingsButton.addEventListener('click', function(){
+       if (settingsCheckbox.checked) {
+            game.settings = false;
+        }
+        settingsWindow.style.display = 'none';
+    })
+
     document.addEventListener('keydown', event => {
         if (event.code === 'Digit1'){
-            document.getElementById('cheese-button').src = './images/beaufort.png'
+            document.getElementById('cheese-button').src = './images/beaufort.png';
         }
         if (event.code === 'Digit2'){
-            document.getElementById('cheese-button').src = './images/comte.png'
+            document.getElementById('cheese-button').src = './images/comte.png';
         }
         if (event.code === 'Digit3'){
-            document.getElementById('cheese-button').src = './images/parmigiano.png'
+            document.getElementById('cheese-button').src = './images/parmigiano.png';
+        }
+        if (event.code === 'Digit4'){
+            document.getElementById('cheese-button').src = './images/camembert.png';
         }
     })
 

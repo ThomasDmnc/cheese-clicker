@@ -1,4 +1,4 @@
-body{
+body {
     text-align: center;
     font-family: 'Inter', sans-serif;
     width: 100vw;
@@ -126,6 +126,7 @@ input, select, textarea {
     background: #FCFCFC;
     width: 40%;
 }
+
 .col2-header {
     display: flex;
     flex-direction: column;
@@ -190,6 +191,15 @@ input, select, textarea {
 .col3 {
     background: #FCFCFC;
     width: 30%;
+}
+
+.col3-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 2vh 2vw 2vh 2vw;
 }
 
 
@@ -282,6 +292,7 @@ input, select, textarea {
     border: 1px solid black;
     padding: 10px
 }
+
 .cross-header{
     display: flex;
     flex-direction: row;
@@ -293,4 +304,50 @@ input, select, textarea {
 .cross-image {
     width: 20px;
     height: 20px;
+}
+
+.question {
+    width: 20px;
+    height: 20px;
+}
+
+.question:hover {
+    background: #e6e6e6;
+    box-shadow: 0 5px #aaa;
+    color: #888;
+}
+
+.settings-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.settings-body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-cross-image{
+    width: 20px;
+    height: 20px;
+}
+
+.settings {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25vw;
+    height: 15vh;
+    background: #CEE1C9;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid black;
+    padding: 10px
 }

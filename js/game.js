@@ -8,6 +8,7 @@ class Game {
     this.ToolsArr = [];
     this.currentTime = 0;
     this.intervalId = null;
+    this.settings = true;
     this.gameOver = false;
     this.cursorCounter = 0;
     this.cowCounter = 0;
@@ -27,13 +28,7 @@ class Game {
 
       this.updateAllPrices();
 
-      // if (this.currentTime >= 2000){
-      //   this.gameOver = true;
-      // }
-      
-      if (this.counter >= 1000){
-        this.gameWon();
-      }
+      if (this.settings) this.winLoseSettings();
   
       if (this.gameOver){
         this.startScreen.style.display = "none";
@@ -42,7 +37,16 @@ class Game {
       }
     }, 10);
   }
-
+  
+  winLoseSettings(){
+      if (this.currentTime >= 2000){
+        this.gameOver = true;
+      }
+    
+      if (this.counter >= 1000){
+        this.gameWon();
+      }
+  }
   updateAllPrices(){
     this.updateCursorPrice();
     this.updateCheeseKnifePrice();
@@ -94,7 +98,7 @@ class Game {
     let rate = 0.5;
 
     if (this.cursorCounter != 0) {
-      price *= Math.pow(1.2, this.cursorCounter);
+      price *= Math.pow(1.16, this.cursorCounter);
     }
 
     if (this.counter >= price){
@@ -110,7 +114,7 @@ class Game {
     let price = 10;
 
     if (this.cursorCounter != 0) {
-      price *= Math.pow(1.2, this.cursorCounter);
+      price *= Math.pow(1.16, this.cursorCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Cursors: ${this.cursorCounter}`
@@ -123,7 +127,7 @@ class Game {
     let rate = 1;
 
     if (this.knifeCounter != 0) {
-      price *= Math.pow(1.2, this.knifeCounter);
+      price *= Math.pow(1.16, this.knifeCounter);
     }
 
     if (this.counter >= price){
@@ -139,7 +143,7 @@ class Game {
     let price = 100;
 
     if (this.knifeCounter != 0) {
-      price *= Math.pow(1.2, this.knifeCounter);
+      price *= Math.pow(1.16, this.knifeCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Cheese Knifes: ${this.knifeCounter}`
@@ -150,7 +154,7 @@ class Game {
     let rate = 10;
 
     if (this.cowCounter != 0) {
-      price *= Math.pow(1.2, this.cowCounter);
+      price *= Math.pow(1.16, this.cowCounter);
     }
 
     if (this.counter >= price){
@@ -166,7 +170,7 @@ class Game {
     let price = 500;
 
     if (this.cowCounter != 0) {
-      price *= Math.pow(1.2, this.cowCounter);
+      price *= Math.pow(1.16, this.cowCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Cows: ${this.cowCounter}`
@@ -178,7 +182,7 @@ class Game {
     let rate = 50;
 
     if (this.farmerCounter != 0) {
-      price *= Math.pow(1.2, this.farmerCounter);
+      price *= Math.pow(1.16, this.farmerCounter);
     }
 
     if (this.counter >= price){
@@ -194,7 +198,7 @@ class Game {
     let price = 1000;
 
     if (this.farmerCounter != 0) {
-      price *= Math.pow(1.2, this.farmerCounter);
+      price *= Math.pow(1.16, this.farmerCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Farmers: ${this.farmerCounter}`
@@ -205,7 +209,7 @@ class Game {
     let rate = 100;
 
     if (this.farmCounter != 0) {
-      price *= Math.pow(1.2, this.farmCounter);
+      price *= Math.pow(1.16, this.farmCounter);
     }
 
     if (this.counter >= price){
@@ -221,7 +225,7 @@ class Game {
     let price = 50000;
 
     if (this.farmCounter != 0) {
-      price *= Math.pow(1.2, this.farmCounter);
+      price *= Math.pow(1.16, this.farmCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Farms: ${this.farmCounter}`
@@ -232,7 +236,7 @@ class Game {
     let rate = 250;
 
     if (this.factoryCounter != 0) {
-      price *= Math.pow(1.2, this.factoryCounter);
+      price *= Math.pow(1.16, this.factoryCounter);
     }
 
     if (this.counter >= price){
@@ -259,7 +263,7 @@ class Game {
     }
 
     if (this.factoryCounter != 0) {
-      price *= Math.pow(1.2, this.factoryCounter);
+      price *= Math.pow(1.16, this.factoryCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Factories: ${this.factoryCounter}`
@@ -270,7 +274,7 @@ class Game {
     let rate = 500;
 
     if (this.aliensCounter != 0) {
-      price *= Math.pow(1.2, this.aliensCounter);
+      price *= Math.pow(1.16, this.aliensCounter);
     }
 
     if (this.counter >= price){
@@ -295,7 +299,7 @@ class Game {
     }
 
     if (this.aliensCounter != 0) {
-      price *= Math.pow(1.2, this.aliensCounter);
+      price *= Math.pow(1.16, this.aliensCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
   }
