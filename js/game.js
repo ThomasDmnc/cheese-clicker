@@ -26,10 +26,10 @@ class Game {
       this.replaceRate();
 
       this.updateAllPrices()
-
-      // if (this.currentTime >= 20000){
-      //   this.gameOver = true;
-      // }
+      console.log(this.currentTime)
+      if (this.currentTime >= 2000){
+        this.gameOver = true;
+      }
       
       if (this.counter >= 1000){
         this.gameWon();
@@ -51,6 +51,11 @@ class Game {
     this.updateFarmerPrice();
     this.updateAliensPrice();
     this.updateFactoryPrice();
+  }
+
+  stopGame(){
+    this.intervalId = null;
+    this.gameOver = false;
   }
 
   gameWon(){

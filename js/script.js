@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
     const factoryButton =  document.querySelector('[data-name="factory"]');
     const aliensButton =  document.querySelector('[data-name="aliens"]');
 
-    
 
     let game;
 
@@ -24,16 +23,14 @@ window.addEventListener('load', () => {
     startButton.addEventListener('click', function () {
         const playerName = document.getElementById('player-name').value;
         let helloTitle = document.querySelector('.title')
-
         helloTitle.innerText = `Hello ${playerName} 👋`
-
-        startGame()
-        
+        startGame();
     });
 
-    // restartButton.addEventListener('click', function () {
-    //     startGame()
-    // });
+    restartButton.addEventListener('click', function () {
+        location.reload();
+        startGame();
+    });
 
     cheeseButton.addEventListener("click", function () {
         game.clickAddCounter();
