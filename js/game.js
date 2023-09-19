@@ -25,11 +25,11 @@ class Game {
       this.counter += (this.rate / 100);
       this.replaceRate();
 
-      this.updateAllPrices()
-      console.log(this.currentTime)
-      if (this.currentTime >= 2000){
-        this.gameOver = true;
-      }
+      this.updateAllPrices();
+
+      // if (this.currentTime >= 2000){
+      //   this.gameOver = true;
+      // }
       
       if (this.counter >= 1000){
         this.gameWon();
@@ -59,7 +59,8 @@ class Game {
   }
 
   gameWon(){
-    alert('you won');
+    const winningWindow = document.querySelector('.winning');
+    winningWindow.style.style.display = "block";
   }
 
   start() {

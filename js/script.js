@@ -2,6 +2,8 @@ window.addEventListener('load', () => {
     const startButton = document.getElementById('start-button');
     const restartButton = document.getElementById('restart-button');
     const cheeseButton = document.querySelector('.cheese');
+    const crossWinButton = document.querySelector('.winning .cross-header');
+    const winningWindow = document.querySelector('.winning');
     // all tools query selectors
     const cursorsButton = document.querySelector('[data-name="cursor"]');
     const cowsButton = document.querySelector('[data-name="cow"]');
@@ -62,6 +64,23 @@ window.addEventListener('load', () => {
 
     aliensButton.addEventListener('click', function() {
         game.buyAliens();
+    })
+
+    crossWinButton.addEventListener('click', function(){
+        console.log('check');
+        winningWindow.style.display = "none";
+    })
+
+    document.addEventListener('keydown', event => {
+        if (event.code === 'Digit1'){
+            document.getElementById('cheese-button').src = './images/beaufort.png'
+        }
+        if (event.code === 'Digit2'){
+            document.getElementById('cheese-button').src = './images/comte.png'
+        }
+        if (event.code === 'Digit3'){
+            document.getElementById('cheese-button').src = './images/parmigiano.png'
+        }
     })
 
 });
