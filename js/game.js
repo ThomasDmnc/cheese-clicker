@@ -125,15 +125,13 @@ class Game {
   addImage(toolName){
     let ctn = document.querySelector(`.tool-images-${toolName}`)
     let lastChild = getComputedStyle(document.querySelector(`.tool-images-${toolName} > img:last-child`))
-    let topLastChild = parseFloat(lastChild.getPropertyValue('top'));
     let leftLastChild = parseFloat(lastChild.getPropertyValue('left'));
     let newImg = document.createElement('img');
     newImg.src = `./images/${toolName}.png`;
     newImg.alt =`${toolName}`;
     newImg.className = 'image-cursor';
 
-    // newImg.style.top = `${topLastChild + Math.floor(Math.random() * 10)}px`;
-    newImg.style.left = `${leftLastChild + Math.floor(Math.random() * 10)}px`;
+    newImg.style.left = `${leftLastChild + 2 + Math.floor(Math.random() * 10)}px`;
 
     ctn.appendChild(newImg);
   }
