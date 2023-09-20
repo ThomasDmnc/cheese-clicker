@@ -116,6 +116,21 @@ class Game {
     counterText.innerText = `${Math.floor((this.counter))} Camemberts`;
   }
 
+  addImage(toolName){
+    let ctn = document.querySelector(`.tool-images-${toolName}`)
+    let lastChild = getComputedStyle(document.querySelector(`.tool-images-${toolName} > img:last-child`))
+    let topLastChild = parseFloat(lastChild.getPropertyValue('top'));
+    let leftLastChild = parseFloat(lastChild.getPropertyValue('left'));
+    let newImg = document.createElement('img');
+    newImg.src = `./images/${toolName}.png`;
+    newImg.alt =`${toolName}`;
+    newImg.className = 'image-cursor';
+
+    // newImg.style.top = `${topLastChild + Math.floor(Math.random() * 10)}px`;
+    newImg.style.left = `${leftLastChild + Math.floor(Math.random() * 10)}px`;
+
+    ctn.appendChild(newImg);
+  }
 
   replaceRate() {
     let rateText = document.querySelector('.rate');
@@ -134,6 +149,10 @@ class Game {
       this.counter -= price;
       this.rate += rate;
       this.cursorCounter += 1;
+
+      if (this.counter > 1) {
+        this.addImage('cursor')
+      }
     }
   }
 
@@ -147,7 +166,6 @@ class Game {
     }
     rateText.innerText = `${Math.floor(price)}`;
     cardText.innerText = `Cursors: ${this.cursorCounter}`
-
   }
 
 
@@ -163,6 +181,11 @@ class Game {
       this.counter -= price;
       this.rate += rate;
       this.knifeCounter += 1;
+
+
+      if (this.counter > 1) {
+        this.addImage('knife')
+      }
     }
   }
   
@@ -184,12 +207,17 @@ class Game {
 
     if (this.cowCounter != 0) {
       price *= Math.pow(1.16, this.cowCounter);
+
     }
 
     if (this.counter >= price){
       this.counter -= price;
       this.rate += rate;
       this.cowCounter += 1;
+
+      if (this.counter > 1) {
+        this.addImage('cow');
+      }
     }
   }
 
@@ -212,12 +240,16 @@ class Game {
 
     if (this.farmerCounter != 0) {
       price *= Math.pow(1.16, this.farmerCounter);
+
     }
 
     if (this.counter >= price){
       this.counter -= price;
       this.rate += rate;
       this.farmerCounter += 1;
+      if (this.counter > 1) {
+        this.addImage('farmer');
+      }
     }
   }
 
@@ -239,12 +271,16 @@ class Game {
 
     if (this.farmCounter != 0) {
       price *= Math.pow(1.16, this.farmCounter);
+
     }
 
     if (this.counter >= price){
       this.counter -= price;
       this.rate += rate;
       this.farmCounter += 1;
+      if (this.counter > 1) {
+        this.addImage('farm');
+      }
     }
   }
 
@@ -266,12 +302,16 @@ class Game {
 
     if (this.factoryCounter != 0) {
       price *= Math.pow(1.16, this.factoryCounter);
+
     }
 
     if (this.counter >= price){
       this.counter -= price;
       this.rate += rate;
       this.factoryCounter += 1;
+      if (this.counter > 1) {
+        this.addImage('factory');
+      }
     }
   }
 
@@ -306,12 +346,16 @@ class Game {
 
     if (this.aliensCounter != 0) {
       price *= Math.pow(1.16, this.aliensCounter);
+
     }
 
     if (this.counter >= price){
       this.counter -= price;
       this.rate += rate;
       this.aliensCounter += 1;
+      if (this.counter > 1) {
+        this.addImage('aliens');
+      }
     }
   }
 

@@ -183,9 +183,27 @@ input, select, textarea {
     line-height: normal;
 }
 
-.tool-images img {
+[class^="tool-images-"]{
+    position: relative;
+}
+
+
+[class^="tool-images-"] img {
     width: 50px;
     height: 50px;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    transform: translate(0%, 0%);
+}
+
+.image-cursor{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    transform: translate(0%, 0%);
 }
 
 .col3 {
