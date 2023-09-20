@@ -3,6 +3,7 @@ class Game {
     this.startScreen = document.getElementById("game-intro");
     this.gameEndScreen = document.getElementById("game-end");
     this.gameScreen = document.getElementById("game-container");
+    this.playerName = '';
     this.counter = 0;
     this.rate = 0;
     this.currentTime = 0;
@@ -50,6 +51,7 @@ class Game {
   startLocalStorage(){
     setInterval(() => {
       localStorage.setItem('counter', this.counter);
+      localStorage.setItem('playerName', this.playerName);
       localStorage.setItem('rate', this.rate);
       localStorage.setItem('settings', this.settings);
       localStorage.setItem('cursorCounter', this.cursorCounter);
@@ -58,11 +60,11 @@ class Game {
       localStorage.setItem('farmerCounter', this.farmerCounter);
       localStorage.setItem('farmCounter', this.farmCounter);
       localStorage.setItem('factoryCounter', this.factoryCounter);
+      localStorage.setItem('aliensCounter', this.aliensCounter);
     }, 60000)
   }
 
   loadLocalStorage() {
-    console.log("aw lard makes this warks");
     this.counter = parseInt(localStorage.getItem('counter'));
     this.rate = parseInt(localStorage.getItem('rate'));
     this.settings = localStorage.getItem('settings') === "true" ? true : false;
@@ -74,6 +76,7 @@ class Game {
     this.factoryCounter = parseInt(localStorage.getItem('factoryCounter'));
     this.aliensCounter = parseInt(localStorage.getItem('aliensCounter'));
   }
+
 
   updateAllPrices(){
     this.updateCursorPrice();
@@ -111,14 +114,12 @@ class Game {
   replaceCounter() {
     let counterText = document.querySelector(".counter");
     counterText.innerText = `${Math.floor((this.counter))} Camemberts`;
-    // console.log(`this counter is ${this.counter}`);
   }
 
 
   replaceRate() {
     let rateText = document.querySelector('.rate');
     rateText.innerText = `per sec ${this.rate}`
-    // console.log(`this rate is ${this.rate}`)
   }
 
   buyCursor(){
@@ -174,7 +175,7 @@ class Game {
       price *= Math.pow(1.16, this.knifeCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
-    cardText.innerText = `Cheese Knifes: ${this.knifeCounter}`
+    cardText.innerText = `Cheese Knives: ${this.knifeCounter}`
   }
 
   buyCow(){
@@ -280,8 +281,10 @@ class Game {
     let cardText = document.getElementById('factory-card');
     let price = 100000;
 
-    if (this.factoryCounter < 1){
+    if (this.factoryCounter == 0 ){
       factoryCard.style.display = "none";
+    } else if (this.factoryCounter <= 1 ){
+      factoryCard.style.display = "flex";
     }
 
     let cardVisibility = document.querySelector('[data-name="factory"]');
@@ -315,11 +318,14 @@ class Game {
   updateAliensPrice(){
     let alienCard = document.getElementById('aliens-surprise');
     let rateText = document.querySelector('[data-name="aliens"]').children[1];
+    let cardText = document.getElementById('aliens-card');
     let price = 100000000;
     let cardVisibility = document.querySelector('[data-name="aliens"]');
 
-    if (this.aliensCounter < 1){
+    if (this.aliensCounter ==  0){
       alienCard.style.display = "none";
+    } else if (this.aliensCounter <= 1 ){
+      alienCard.style.display = "flex";
     }
 
     if (this.counter >= 1000000){
@@ -330,6 +336,7 @@ class Game {
       price *= Math.pow(1.16, this.aliensCounter);
     }
     rateText.innerText = `${Math.floor(price)}`;
+    cardText.innerText = `Aliens Cheese Makers: ${this.aliensCounter}`
   }
 
 }

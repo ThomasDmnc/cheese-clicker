@@ -26,25 +26,25 @@ window.addEventListener('load', () => {
     let game;
 
     function startGame(){
-        console.log('startiiing the game');
         game = new Game();
         game.start()
     };
 
     startButton.addEventListener('click', function () {
+        startGame();
         const playerName = document.getElementById('player-name').value;
         let helloTitle = document.querySelector('.title')
-        helloTitle.innerText = `Hello ${playerName} 👋`
-        startGame();
+        helloTitle.innerText = `Hello ${playerName} 👋`;
+        game.playerName = playerName;
 
         if (window.localStorage.length <= 8){
             console.log('does it work?')
             game.startLocalStorage();
         } else {
             game.loadLocalStorage();
+            helloTitle.innerText = `Welcome back ${localStorage.playerName} 👋`;
             game.startLocalStorage();
         }
-        
     });
 
     restartButton.addEventListener('click', function () {
