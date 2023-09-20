@@ -12,6 +12,9 @@ window.addEventListener('load', () => {
     let settingsCheckbox = document.querySelector('.settings-checkbox');
 
 
+    const footerWindow = document.querySelector('.footer');
+    const deleteLocaleStorageBtn = document.querySelector('.delete-storage');
+
     // all tools query selectors
     const cursorsButton = document.querySelector('[data-name="cursor"]');
     const cowsButton = document.querySelector('[data-name="cow"]');
@@ -30,6 +33,15 @@ window.addEventListener('load', () => {
         game.start()
     };
 
+    if (window.localStorage.length >= 8){
+        footerWindow.style.display = 'block'
+    }
+    
+    deleteLocaleStorageBtn.addEventListener('click', function (){
+        localStorage.clear()
+        footerWindow.style.display = 'none'
+    })
+
     startButton.addEventListener('click', function () {
         startGame();
         const playerName = document.getElementById('player-name').value;
@@ -44,10 +56,18 @@ window.addEventListener('load', () => {
             game.loadLocalStorage();
             helloTitle.innerText = `Welcome back ${localStorage.playerName} 👋`;
             game.startLocalStorage();
+            game.reloadImage('cursor', game.cursorCounter);
+            game.reloadImage('knife', game.knifeCounter);
+            game.reloadImage('cow', game.cowCounter);
+            game.reloadImage('farmer', game.farmerCounter);
+            game.reloadImage('farm', game.farmCounter);
+            game.reloadImage('factory', game.factoryCounter);
+            game.reloadImage('aliens', game.aliensCounter);
         }
     });
 
     restartButton.addEventListener('click', function () {
+        localStorage.clear();
         location.reload();
         startGame();
     });

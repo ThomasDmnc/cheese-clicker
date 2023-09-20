@@ -77,6 +77,12 @@ class Game {
     this.aliensCounter = parseInt(localStorage.getItem('aliensCounter'));
   }
 
+  reloadImage(toolName, counter){
+    for (let i = 0; i < counter; i++) {
+      this.addImage(toolName);
+    }
+  }
+
 
   updateAllPrices(){
     this.updateCursorPrice();
@@ -150,7 +156,7 @@ class Game {
       this.rate += rate;
       this.cursorCounter += 1;
 
-      if (this.counter > 1) {
+      if (this.cursorCounter > 1) {
         this.addImage('cursor')
       }
     }
@@ -183,7 +189,7 @@ class Game {
       this.knifeCounter += 1;
 
 
-      if (this.counter > 1) {
+      if (this.knifeCounter > 1) {
         this.addImage('knife')
       }
     }
@@ -215,7 +221,7 @@ class Game {
       this.rate += rate;
       this.cowCounter += 1;
 
-      if (this.counter > 1) {
+      if (this.cowCounter > 1) {
         this.addImage('cow');
       }
     }
@@ -247,7 +253,7 @@ class Game {
       this.counter -= price;
       this.rate += rate;
       this.farmerCounter += 1;
-      if (this.counter > 1) {
+      if (this.farmerCounter > 1) {
         this.addImage('farmer');
       }
     }
@@ -278,7 +284,7 @@ class Game {
       this.counter -= price;
       this.rate += rate;
       this.farmCounter += 1;
-      if (this.counter > 1) {
+      if (this.farmCounter > 1) {
         this.addImage('farm');
       }
     }
@@ -309,7 +315,7 @@ class Game {
       this.counter -= price;
       this.rate += rate;
       this.factoryCounter += 1;
-      if (this.counter > 1) {
+      if (this.factoryCounter > 1) {
         this.addImage('factory');
       }
     }
@@ -353,7 +359,7 @@ class Game {
       this.counter -= price;
       this.rate += rate;
       this.aliensCounter += 1;
-      if (this.counter > 1) {
+      if (this.aliensCounter > 1) {
         this.addImage('aliens');
       }
     }

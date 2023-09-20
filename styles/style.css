@@ -17,6 +17,32 @@ body {
     background: #FCFCFC;
 }
 
+.footer{
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #D6D6D6;
+    padding: 25px;
+}
+
+.delete-storage{
+    border-radius: 15px;
+    background: #DD1C1A;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FCFCFC;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 1em;
+    padding: 1em;
+    width: 200px;
+    height: 80px;  
+}
+
 #game-intro h1 {
     color: #000;
     font-family: Inter;
