@@ -17,6 +17,8 @@ class Game {
     this.farmCounter = 0;
     this.factoryCounter = 0;
     this.aliensCounter = 0;
+    this.leftPanelScreen = document.querySelector('.col1');
+    this.particles = [];
   }
 
   gameLoop() {
@@ -36,6 +38,32 @@ class Game {
         this.gameScreen.style.display = "none";
       }
     }, 10);
+  }
+
+  createParticle(){
+    let rateRework = Number(parseFloat(this.rate/10));
+
+    if (this.particles.length < rateRework){
+      this.particles.push(
+        new Particle(this.leftPanelScreen,
+          Math.random() * (this.leftPanelScreen.clientWidth - 40 - 100) + 50,
+          -150,
+          50,
+          50
+          ))
+      }
+    }
+
+  particlesLoop(){
+    setInterval(() => {
+      this.particles.forEach( particle => {
+        particle.descend();
+
+        if(particle.top > this.leftPanelScreen.clientHeight){
+          particle.element.remove()
+        }
+      })
+    }, 100)
   }
   
   winLoseSettings(){
@@ -92,6 +120,8 @@ class Game {
     this.updateFarmerPrice();
     this.updateAliensPrice();
     this.updateFactoryPrice();
+
+    this.createParticle();
   }
 
   stopGame(){
@@ -109,6 +139,7 @@ class Game {
     this.gameEndScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.gameLoop();
+    this.particlesLoop();
   }
 
   clickAddCounter() {

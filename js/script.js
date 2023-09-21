@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
 
     function startGame(){
         game = new Game();
-        game.start()
+        game.start();
     };
 
     if (window.localStorage.length >= 8){

@@ -118,16 +118,19 @@ input, select, textarea {
 }
 
 .cheese{
+    z-index: 4;
     margin-top: 10vh;
 }
 
 .cheese img{
     width: 400px;
     height: 400px;
+    z-index: 4;
 }
 
 .cheese img:active{
     transform: scale(0.8);
+    z-index: 4;
 }
 
 .counter-cont {
@@ -139,6 +142,7 @@ input, select, textarea {
     heigth: 100px;
     background: #F6F6F6;
     border-radius: 15px;
+    z-index: 4;
 }
 
 .counter {
@@ -146,6 +150,7 @@ input, select, textarea {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    z-index: 4;
 }
 
 .col2 {
