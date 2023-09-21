@@ -17,6 +17,11 @@ body {
     background: #FCFCFC;
 }
 
+#logo {
+    width: 500px;
+    height: auto;
+}
+
 .footer{
     display: none;
     position: fixed;
